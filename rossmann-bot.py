@@ -73,7 +73,7 @@ def parse_message(message):
 # API inicialize
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         message = request.get_json()
