@@ -46,7 +46,7 @@ def load_dataset(store_id):
 def predict(data):
 
     # API Call
-    url = 'https://rossmann-model-dso.herokuapp.com/rossmann/predict'
+    url = 'https://rossmann-model.onrender.com/rossmann/predict'
     header = {'Content-type': 'application/json'}
     data = data
 
@@ -112,11 +112,3 @@ def index():
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
     app.run(host='0.0.0.0', port=port)
-
-
-
-
-
-
-
-
