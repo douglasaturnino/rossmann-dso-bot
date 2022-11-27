@@ -65,7 +65,7 @@ def parse_message(message):
         store_id = store_id.replace('/', '')
     
         store_id = int(store_id)
-    except ValueError | KeyError:
+    except (ValueError, KeyError):
         store_id = 'error'
 
     return chat_id, store_id
