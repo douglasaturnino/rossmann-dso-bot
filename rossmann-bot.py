@@ -58,6 +58,7 @@ def predict(data):
     return d1
 
 def parse_message(message):
+
     chat_id = message['message']['chat']['id']
     
     try:
@@ -78,6 +79,10 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         message = request.get_json()
+        # retorna status 200 caso o bot seja bloqueado.
+        if message['my_chat_member']:
+            return Response('OK', status=200)
+
         chat_id, store_id = parse_message(message)
         
         if store_id != 'error':
