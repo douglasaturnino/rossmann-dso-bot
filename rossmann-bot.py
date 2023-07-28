@@ -80,7 +80,8 @@ def index():
     if request.method == 'POST':
         message = request.get_json()
         # retorna status 200 caso o bot seja bloqueado.
-        if message['my_chat_member']:
+        print(message)
+        if 'my_chat_member' in message:
             return Response('OK', status=200)
 
         chat_id, store_id = parse_message(message)
@@ -117,4 +118,4 @@ def index():
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
